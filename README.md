@@ -1,3 +1,8 @@
+##Original author: [Jiingz](https://www.unknowncheats.me/forum/members/2088298.html). Original repo was taken down (https://github.com/Jiingz/vault7/tree/dev). Simply reuploading it so the Thread on UC is not rendered useless. I did not write a single line of code in this.##
+
+
+Original Readme:
+
 ## Vault7 ##
 
 I left gamehacking completely and I completely swapped to UNIX Systems , so I decided to publish my stuff.
