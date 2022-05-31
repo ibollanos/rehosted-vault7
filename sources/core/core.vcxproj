@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b589d49e-3679-40aa-a0ac-9340ed48efa6}</ProjectGuid>
+    <RootNamespace>core</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(SolutionName)-core</TargetName>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>$(SolutionName)-core</TargetName>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>core</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>core</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)sources;$(ProjectDir)libs;$(ProjectDir)game\game_objects;$(ProjectDir)libs/zydis;$(ProjectDir)libs/zydis/zydis/src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>$(ProjectDir)libs\detours\detours.lib;$(ProjectDir)libs\minhook\lib\libMinHook-x86-v141-mtd.lib</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)sources;$(ProjectDir)libs;$(ProjectDir)game\game_objects;$(ProjectDir)libs/zydis;$(ProjectDir)libs/zydis/zydis/src</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>$(ProjectDir)libs\detours\detours.lib;$(ProjectDir)libs\minhook\lib\libMinHook-x86-v141-mtd.lib</AdditionalDependencies>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="drawings\draw_factory.h" />
+    <ClInclude Include="drawings\menu\menu.h" />
+    <ClInclude Include="drawings\permashow.h" />
+    <ClInclude Include="drawings\renderer.h" />
+    <ClInclude Include="event\events.h" />
+    <ClInclude Include="event\event_bus.h" />
+    <ClInclude Include="features\feature_controller.h" />
+    <ClInclude Include="features\feature_interface.h" />
+    <ClInclude Include="sdk\controller.h" />
+    <ClInclude Include="game\game_objects\structures\spell.h" />
+    <ClInclude Include="sdk\prediction\damage.h" />
+    <ClInclude Include="sdk\prediction\health_prediction.h" />
+    <ClInclude Include="sdk\prediction\incoming_attack.h" />
+    <ClInclude Include="sdk\target_selector.h" />
+    <ClInclude Include="features\humanizer.h" />
+    <ClInclude Include="features\orbwalker.h" />
+    <ClInclude Include="game\functions\function.h" />
+    <ClInclude Include="game\functions\function_accessor.h" />
+    <ClInclude Include="game\game_components\game_component.h" />
+    <ClInclude Include="game\game_objects\attackable_units\AttackableUnit.h" />
+    <ClInclude Include="game\game_objects\attackable_units\building.h" />
+    <ClInclude Include="game\game_objects\attackable_units\inhibitor.h" />
+    <ClInclude Include="game\game_objects\attackable_units\hero.h" />
+    <ClInclude Include="game\game_objects\attackable_units\minion.h" />
+    <ClInclude Include="game\game_objects\attackable_units\turret.h" />
+    <ClInclude Include="game\game_objects\enums.h" />
+    <ClInclude Include="game\game_objects\structures\ai_manager.h" />
+    <ClInclude Include="game\game_objects\structures\buff.h" />
+    <ClInclude Include="game\game_objects\structures\buff_manager.h" />
+    <ClInclude Include="game\Offsets.h" />
+    <ClInclude Include="game\world\world.h" />
+    <ClInclude Include="drawings\geometry\vector.h" />
+    <ClInclude Include="hooking\callbacks.h" />
+    <ClInclude Include="hooking\hooking_service.h" />
+    <ClInclude Include="hooking\kiero.h" />
+    <ClInclude Include="hooking\makesyscall.h" />
+    <ClInclude Include="hooking\structs.h" />
+    <ClInclude Include="hooking\ultimate_hooks.h" />
+    <ClInclude Include="libs\config\config.h" />
+    <ClInclude Include="libs\xor.h" />
+    <ClInclude Include="libs\ImGui\imconfig.h" />
+    <ClInclude Include="libs\ImGui\imgui.h" />
+    <ClInclude Include="libs\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="libs\ImGui\imgui_impl_dx9.h" />
+    <ClInclude Include="libs\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="libs\ImGui\imgui_internal.h" />
+    <ClInclude Include="libs\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="libs\ImGui\imstb_textedit.h" />
+    <ClInclude Include="libs\ImGui\imstb_truetype.h" />
+    <ClInclude Include="libs\Zydis\ZycoreExportConfig.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Allocator.h" />
+    <ClInclude Include="libs\Zydis\Zycore\API\Memory.h" />
+    <ClInclude Include="libs\Zydis\Zycore\API\Synchronization.h" />
+    <ClInclude Include="libs\Zydis\Zycore\API\Terminal.h" />
+    <ClInclude Include="libs\Zydis\Zycore\API\Thread.h" />
+    <ClInclude Include="libs\Zydis\Zycore\ArgParse.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Bitset.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Comparison.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Defines.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Format.h" />
+    <ClInclude Include="libs\Zydis\Zycore\LibC.h" />
+    <ClInclude Include="libs\Zydis\Zycore\List.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Object.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Status.h" />
+    <ClInclude Include="libs\Zydis\Zycore\String.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Types.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Vector.h" />
+    <ClInclude Include="libs\Zydis\Zycore\Zycore.h" />
+    <ClInclude Include="libs\Zydis\ZydisExportConfig.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Decoder.h" />
+    <ClInclude Include="libs\Zydis\Zydis\DecoderTypes.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Formatter.h" />
+    <ClInclude Include="libs\Zydis\Zydis\FormatterBuffer.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Generated\EnumInstructionCategory.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Generated\EnumISAExt.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Generated\EnumISASet.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Generated\EnumMnemonic.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Generated\EnumRegister.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Internal\DecoderData.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Internal\FormatterATT.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Internal\FormatterBase.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Internal\FormatterIntel.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Internal\SharedData.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Internal\String.h" />
+    <ClInclude Include="libs\Zydis\Zydis\MetaInfo.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Mnemonic.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Register.h" />
+    <ClInclude Include="libs\Zydis\Zydis\SharedTypes.h" />
+    <ClInclude Include="libs\Zydis\Zydis\ShortString.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Status.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Utils.h" />
+    <ClInclude Include="libs\Zydis\Zydis\Zydis.h" />
+    <ClInclude Include="mouse.h" />
+    <ClInclude Include="tests\test_run.h" />
+    <ClInclude Include="utilities.h" />
+    <ClInclude Include="locator.h" />
+    <ClInclude Include="game\game_objects\game_object.h" />
+    <ClInclude Include="game\manager\manager.h" />
+    <ClInclude Include="game\manager\manager_iterator.h" />
+    <ClInclude Include="memory\accessor.h" />
+    <ClInclude Include="memory\member.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="drawings\draw_factory.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="drawings\menu\menu.cpp" />
+    <ClCompile Include="drawings\permashow.cpp" />
+    <ClCompile Include="features\feature_controller.cpp" />
+    <ClCompile Include="sdk\controller.cpp" />
+    <ClCompile Include="sdk\prediction\damage.cpp" />
+    <ClCompile Include="sdk\prediction\health_prediction.cpp" />
+    <ClCompile Include="sdk\prediction\incoming_attack.cpp" />
+    <ClCompile Include="sdk\target_selector.cpp" />
+    <ClCompile Include="features\orbwalker.cpp" />
+    <ClCompile Include="game\game_components\game_component.cpp" />
+    <ClCompile Include="game\game_objects\attackable_units\AttackableUnit.cpp" />
+    <ClCompile Include="game\game_objects\attackable_units\building.cpp" />
+    <ClCompile Include="game\game_objects\attackable_units\inhibitor.cpp" />
+    <ClCompile Include="game\game_objects\game_object.cpp" />
+    <ClCompile Include="game\game_objects\attackable_units\hero.cpp" />
+    <ClCompile Include="game\game_objects\attackable_units\minion.cpp" />
+    <ClCompile Include="game\game_objects\structures\buff.cpp" />
+    <ClCompile Include="game\game_objects\structures\buff_manager.cpp" />
+    <ClCompile Include="game\world\world.cpp" />
+    <ClCompile Include="hooking\callbacks.cpp" />
+    <ClCompile Include="hooking\hooking_service.cpp" />
+    <ClCompile Include="hooking\kiero.cpp" />
+    <ClCompile Include="hooking\ultimate_hooks.cpp" />
+    <ClCompile Include="libs\config\config.cpp" />
+    <ClCompile Include="libs\ImGui\imgui.cpp" />
+    <ClCompile Include="libs\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="libs\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="libs\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="libs\ImGui\imgui_impl_dx9.cpp" />
+    <ClCompile Include="libs\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="libs\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="libs\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="libs\Zydis\Zydis\src\Decoder.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\DecoderData.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\Formatter.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\FormatterATT.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\FormatterBase.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\FormatterBuffer.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\FormatterIntel.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\MetaInfo.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\Mnemonic.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\Register.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\SharedData.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\String.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\Utils.c" />
+    <ClCompile Include="libs\Zydis\Zydis\src\Zydis.c" />
+    <ClCompile Include="locator.cpp" />
+    <ClCompile Include="game\manager\manager.cpp" />
+    <ClCompile Include="game\game_objects\attackable_units\turret.cpp" />
+    <ClCompile Include="tests\test_run.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="libs\Zydis\Zydis\src\Generated\AccessedFlags.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\DecoderTables.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\EncodableInstructions.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\EnumInstructionCategory.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\EnumISAExt.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\EnumISASet.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\EnumMnemonic.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\EnumRegister.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\FormatterStrings.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\InstructionDefinitions.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\InstructionEncodings.inc" />
+    <None Include="libs\Zydis\Zydis\src\Generated\OperandDefinitions.inc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
